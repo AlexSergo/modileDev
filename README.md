@@ -1,2 +1,2 @@
 # modileDev
-![ Alt text](https://github.com/AlexSergo/mobileDev/tree/lesson3/video/video.gif)
+![ Alt text](https://https://github.com/AlexSergo/modileDev/tree/lesson3/video/video.gif)
