@@ -2,6 +2,7 @@ package com.example.lesson4
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import java.util.concurrent.TimeUnit
 
@@ -17,6 +18,8 @@ class AsyncFragment : Fragment() {
         super.onCreate(savedInstanceState)
         retainInstance = true
         PersonHolder.addListener(personsListener)
+        Log.i("[APP]", "Create Fragment")
+        Log.i("[APP]", "Start Async")
         MessagesSender().execute()
     }
 
@@ -28,7 +31,7 @@ class AsyncFragment : Fragment() {
         }
     }
 
-    
+
     class MessagesSender : AsyncTask<Void, Void, Void>() {
 
         override fun onProgressUpdate(vararg p0: Void?) {

@@ -2,6 +2,7 @@ package com.example.lesson4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lesson4.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity(), ActivityCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        Log.i("[APP]", "Create Activity")
         adapter = PersonAdapter(object : IPersonClickListener {
             override fun showPersonName(name: String) {
                 Snackbar.make(binding.root, "Нажата карточка: ${name}", 500).show()
@@ -35,10 +37,12 @@ class MainActivity : AppCompatActivity(), ActivityCallback {
         var oldFragment = fm.findFragmentByTag(AsyncFragment.TAG)
         if (oldFragment == null){
             fragment = AsyncFragment()
+            Log.i("[APP]", "Create Fragment")
             fm.beginTransaction().add(fragment!!, AsyncFragment.TAG).commit()
         }
         else{
             fragment = oldFragment as AsyncFragment
+            Log.i("[APP]", "Find Fragment and get previous messages")
             adapter.getPreviousPersons(fragment!!.persons)
         }
 
@@ -51,6 +55,7 @@ class MainActivity : AppCompatActivity(), ActivityCallback {
     }
 
     override fun getNewPerson(person: Person) {
+        Log.i("[APP]", "Get new message")
         adapter.addNewPerson(person)
     }
 }

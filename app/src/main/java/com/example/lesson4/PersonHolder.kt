@@ -85,6 +85,7 @@ object PersonHolder {
     }
 
     fun sendMessage() {
+        Log.i("[APP]", "Sending message")
         for (listener in listeners)
             listener.invoke(persons.firstOrNull())
         if (persons.count() > 0)
