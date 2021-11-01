@@ -2,23 +2,25 @@ package com.example.lesson4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lesson4.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
 
-class MainActivity : AppCompatActivity() {
+interface ActivityCallback{
+    fun getNewPerson(person: Person)
+}
+
+class MainActivity : AppCompatActivity(), ActivityCallback {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: PersonAdapter
+    private var fragment: AsyncFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        adapter = PersonAdapter(object : IPersonClickListener{
+        adapter = PersonAdapter(object : IPersonClickListener {
             override fun showPersonName(name: String) {
                 Snackbar.make(binding.root, "Нажата карточка: ${name}", 500).show()
             }
@@ -29,19 +31,26 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        val layoutManager =  LinearLayoutManager(this)
+        var fm = supportFragmentManager
+        var oldFragment = fm.findFragmentByTag(AsyncFragment.TAG)
+        if (oldFragment == null){
+            fragment = AsyncFragment()
+            fm.beginTransaction().add(fragment!!, AsyncFragment.TAG).commit()
+        }
+        else{
+            fragment = oldFragment as AsyncFragment
+            adapter.getPreviousPersons(fragment!!.persons)
+        }
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val layoutManager = LinearLayoutManager(this)
         binding.recycleview.layoutManager = layoutManager
         binding.recycleview.adapter = adapter
-
-        PersonHolder.addListener(personsListener)
     }
 
-    override fun onDestroy(){
-        super.onDestroy()
-        PersonHolder.removeListener(personsListener)
-    }
-
-    private val personsListener: PersonsListener = {
-        adapter.persons = it
+    override fun getNewPerson(person: Person) {
+        adapter.addNewPerson(person)
     }
 }
