@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 typealias PersonsListener = (person: Person?) -> Unit
 
 object PersonHolder {
-    private var persons = mutableListOf<Person>()
+    var persons = mutableListOf<Person>()
     private var listeners = mutableSetOf<PersonsListener>()
 
     init {
@@ -82,10 +82,9 @@ object PersonHolder {
 
     fun addListener(listener: PersonsListener) {
         listeners.add(listener)
-        MessagesSender().execute(persons.count())
     }
 
-    private fun sendMessage() {
+    fun sendMessage() {
         for (listener in listeners)
             listener.invoke(persons.firstOrNull())
         if (persons.count() > 0)
@@ -94,23 +93,5 @@ object PersonHolder {
 
     fun removeListener(listener: PersonsListener) {
         listeners.remove(listener)
-    }
-
-    class MessagesSender : AsyncTask<Int, Void, Void>() {
-
-        override fun onProgressUpdate(vararg p0: Void?) {
-            super.onProgressUpdate()
-            sendMessage()
-        }
-
-        override fun doInBackground(vararg messagesCount: Int?): Void? {
-            messagesCount.get(0).let {
-                for (i in 1..it!!) {
-                    TimeUnit.SECONDS.sleep(2)
-                    publishProgress()
-                }
-            }
-            return null
-        }
     }
 }
