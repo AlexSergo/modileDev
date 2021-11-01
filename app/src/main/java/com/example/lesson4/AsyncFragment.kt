@@ -28,6 +28,7 @@ class AsyncFragment : Fragment() {
         }
     }
 
+    
     class MessagesSender : AsyncTask<Void, Void, Void>() {
 
         override fun onProgressUpdate(vararg p0: Void?) {
