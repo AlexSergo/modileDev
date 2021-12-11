@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/activity_new_node.xml" value="0.264" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/activity_nodes_relationships.xml" value="0.2441123188405797" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/activity_relationships.xml" value="0.2441123188405797" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/content_nodes_relationships.xml" value="0.2441123188405797" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/fragment_child_relationships.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/fragment_first.xml" value="0.2441123188405797" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/fragment_parent_relationships.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/fragment_relationship_item.xml" value="0.264" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/fragment_relationship_item_list.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/fragment_relationships_list.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/main_activity.xml" value="0.17889492753623187" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/main_fragment.xml" value="0.17889492753623187" />
+        <entry key="..\:/Users/Alexandr/Desktop/projects/zzz/MyApplication6/app/src/main/res/layout/node_item.xml" value="0.17889492753623187" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
